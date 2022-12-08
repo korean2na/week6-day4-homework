@@ -3,6 +3,43 @@
 {% block title %}Cars{% endblock title %}
 
 {% block content %}
-    <h1>Cars</h1>
-    <p>{{ car_data }}</p>
+<h1>List Your Car</h1>
+<br>
+<form action="{{ url_for('api.list_car') }}" method="POST">
+    <div class="mb-3">
+        <label for="inputMake" class="form-label">Make</label>
+        <input type="text" class="form-control" id="inputMake" name="inputMake">
+    </div>
+    <div class="mb-3">
+        <label for="inputModel" class="form-label">Model</label>
+        <input type="text" class="form-control" id="inputModel" name="inputModel">
+    </div>
+    <div class="mb-3">
+        <label for="inputYear" class="form-label">Year</label>
+        <input type="text" class="form-control" id="inputYear" name="inputYear">
+    </div>
+    <div class="mb-3">
+        <label for="inputColor" class="form-label">Color</label>
+        <input type="text" class="form-control" id="inputColor" name="inputColor">
+    </div>
+    <div class="mb-3">
+        <label for="inputPrice" class="form-label">Price</label>
+        <input type="text" class="form-control" id="inputPrice" name="inputPrice">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<br>
+<hr>
+<br>
+<h1>Car Listings</h1>
+<br>
+    {% for car in cars %}
+        <h3>{{ car.id }}. {{ car.year }} {{ car.make }} {{ car.model }}</h3>
+        <p>Color: {{ car.color.title() }}</p>
+        <p>Price: {{ car.price }}</p>
+        <p>Date Entered: {{ car.date_created }}</p>
+        <p>Seller: {{ car.user.username }} ({{ car.user_id.first_name }} {{ car.user_id.last_name }})</p>
+        {# need to get this to actually show the username and name #}
+        <br>
+    {% endfor %}
 {% endblock content %}

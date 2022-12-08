@@ -3,6 +3,7 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-    <h1>Home</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, minus!</p>
+    <h1>Welcome to Fake Craigslist!</h1>
+    <p>View/make a listing: <a href="{{ url_for('api.cars') }}">CLICK HERE</a></p>
+    <p>Need to sign up for an account? <a href="{{ url_for('auth.register') }}">CLICK HERE</a></p>
 {% endblock content %}
