@@ -38,8 +38,7 @@
         <p>Color: {{ car.color.title() }}</p>
         <p>Price: {{ car.price }}</p>
         <p>Date Entered: {{ car.date_created }}</p>
-        <p>Seller: {{ car.user.username }} ({{ car.user_id.first_name }} {{ car.user_id.last_name }})</p>
-        {# need to get this to actually show the username and name #}
+        <p>Seller: {{ car.user.username }} ({{ car.user.first_name }} {{ car.user.last_name }})</p>
         <br>
     {% endfor %}
 {% endblock content %}

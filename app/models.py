@@ -7,7 +7,8 @@ class User(db.Model):
     username = db.Column(db.String(50), unique=True, nullable=False)
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
-
+    user_car = db.relationship('Car', backref='user')
+    
 class Car(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     make = db.Column(db.String(50), nullable=False)
@@ -17,3 +18,5 @@ class Car(db.Model):
     price = db.Column(db.Float, nullable=False)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    
+    
