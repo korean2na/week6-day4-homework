@@ -1,9 +1,9 @@
 {% extends './layout.html.j2' %}
 
-{% block title %}All Car Listings{% endblock title %}
+{% block title %}Your Listed Car(s){% endblock title %}
 
 {% block content %}
-<h1>All Car Listings</h1>
+<h1>Your Listed Car(s)</h1>
 <br>
     {% for car in cars %}
         {# {{ car.owner.username }} has {{ car.owner.cars | length }} cars listed. #}

@@ -5,6 +5,16 @@
 {% block content %}
     <h1>Login</h1>
     <br>
-    <p>Log into your account here to manage your account and start posting listings!</p>
-    <p>Don't have an account yet? No problem, you can register for free HERE!</p>
+    <form action="{{ url_for('auth.login') }}" method="POST">
+        <input type="hidden" name="next" value="{{ request.args.get('next', '') }}">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 {% endblock content %}

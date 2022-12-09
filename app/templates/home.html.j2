@@ -1,10 +1,13 @@
 {% extends './layout.html.j2' %}
 
-{% block title %}Home{% endblock title %}
+{% block title %}Welcome to megslist!{% endblock title %}
 
 {% block content %}
-    <h1>Welcome to Fake Craigslist!</h1>
+    <h1>Welcome to megslist!</h1>
     <br>
-    <p>View/make a listing: <a href="{{ url_for('api.cars') }}">CLICK HERE</a></p>
-    <p>Need to sign up for an account? <a href="{{ url_for('auth.register') }}">CLICK HERE</a></p>
+    <div class="d-grid col-3 px-4 mx-4 gap-4">
+        <a href="{{ url_for('blog.cars') }}" class="btn btn-primary btn-lg">View All Listings</a>
+        <a href="{{ url_for('blog.users_cars') }}" class="btn btn-primary btn-lg">View Your Listings</a>
+        <a href="{{ url_for('blog.list_your_car') }}" class="btn btn-primary btn-lg">List Your Car</a>
+    </div>
 {% endblock content %}

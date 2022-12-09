@@ -1,0 +1,17 @@
+{% extends './layout.html.j2' %}
+
+{% block title %}Listing ID # {{ car.id }}{% endblock title %}
+
+{% block content %}
+    <h2>{{ car.year }} {{ car.make }} {{ car.model }}</h2>
+    <br>
+    <h4>Listing ID # {{ car.id }}</h4>
+    <br>
+    <div class="px-5">
+        <p>Color: {{ car.color.title() }}</p>
+        <p>Price: {{ car.price }}</p>
+        <p>Date Entered: {{ car.date_created }}</p>
+        <p>Seller: {{ car.owner.username }} ({{ car.owner.first_name }} {{ car.owner.last_name }})</p>
+        <a href="">{{ car.owner.email }}</a>
+    </div>
+{% endblock content %}
